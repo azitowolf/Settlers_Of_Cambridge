@@ -20,7 +20,7 @@
 
 .space{
   height: 16.666%;
-  -webkit-transition: 1s ease-in-out;
+/*  -webkit-transition: 1s ease-in-out;*/
 }
 
 .controlPanel{
@@ -37,18 +37,16 @@
   opacity: 0.5;
 }
 .p1building{
-  background: url('shop.png');
-  background-position: center;
-  background-repeat: no-repeat;
+  background: url('giphyHipsterPack.gif');
   background-size: 100%;
+
 }
 
 
 .p2building{
-  background: url('paypal.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100%;
+  background: url('giphyBusiness.gif');
+  background-size: cover;
+  background-position: -20px
 
 }
 

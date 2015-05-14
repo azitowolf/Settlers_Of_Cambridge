@@ -194,8 +194,8 @@ var gameBoard = {
 };
 
 
-//SET GAME BOARD
 
+//UNIVERSAL FUNCTIONS
 var setGameBoard = function(){
 
   for(var i = 0; i < 16; i++){
@@ -208,20 +208,10 @@ var setGameBoard = function(){
     gameBoard.turnCount = 1;
     gameBoard.p1.resource = 4;
     gameBoard.p2.resource = 4;
-
 };
 
-setGameBoard();
-
-var player = "p1",
-round = gameBoard.turnCount/2;
-
-//TURNS
-
-
-
 var switchPlayer = function(){
-    if(player === "p1"){
+  if(player === "p1"){
     $('.btn').css('background-color', 'coral');
     $('span .play').css('color', 'coral');
     return "p2";
@@ -231,6 +221,64 @@ var switchPlayer = function(){
     return "p1";
   }
 };
+
+$('.hover').click(function(){
+  $(this).addClass('building');
+  var space = $(this).attr('id');
+  gameBoard.spaces[space].house = player;
+});
+
+var rollDice = function(){
+  var roll = Math.floor(Math.random() * 16 + 1);
+  return roll;
+};
+
+var returnResources = function(player, number){
+  var space = "space" + number;
+
+  var pointCount = 0;
+
+    if(gameBoard.spaces[space].house){
+      var resident = gameBoard.spaces[space].house;
+      gameBoard[resident].resource += 1;
+      alert(resident + ' grabbed a resource!');
+    }
+  return pointCount;
+};
+
+var checkWinner = function(){
+  if(gameBoard.p1.points >= 3){
+    alert("player one wins");
+  } else if (gameBoard.p2.points >= 3){
+    alert("player one wins");
+  }
+};
+
+
+var buildPhase = function(player){
+  var userInput = prompt("do you want to build? you have " + gameBoard[player].resource + " resources. (y/n)");
+  if(userInput === 'y'){
+    var inputSpace = prompt("Enter the Square that you want to place on");
+    while (gameBoard.spaces[inputSpace].house !== undefined){
+      inputSpace = prompt('That space is taken, choose another, or end your build phase. enter end to end turn or a new space in format "space1"');
+    } if (inputSpace === undefined){
+      var inputSpace = prompt('please enter a valid space. format is "space1, space2, etc."');
+    } else if (gameBoard.spaces[inputSpace].house === undefined){
+         //space gets filled with the players building
+      gameBoard.spaces[inputSpace].house = player;
+    }
+  }
+};
+
+setGameBoard();
+
+
+//TURNS
+
+var player = "p1",
+round = gameBoard.turnCount/2;
+
+
 
 //BUILD 1
 
@@ -251,7 +299,7 @@ $('.welcomeB').click(function(){
 
   } else if (player === "p2"){
     $('.btn').css('background-color', 'coral');
-  };
+  }
 
 //toggle first buildphase
   $('.board').toggleClass('building');
@@ -294,16 +342,15 @@ $('.build1B').click(function(){
 
 //toggle build
   $('.board').toggleClass('building');
-  // $('.board').children().click(function(){
-  //     alert("it is not a build phase");
-  // });
 
 //roll dice
   var playerRoll = rollDice();
-returnResources(player, playerRoll);
   $('.return .rl').html(playerRoll);
   $('.return .ret').html(gameBoard[player].resource);
+  returnResources(player, playerRoll);
+
 });
+
 
 //BUILD PHASE
 
@@ -316,21 +363,6 @@ $('.returnResources').click(function(){
 //add text to page
   $('.build .rs').html(gameBoard[player].resource);
   $('.build .pts').html(gameBoard[player].points);
-
-//add building class to board
- // $('.board').toggleClass('building');
- //  $('.board').children().click(function(){
- //    if(gameBoard[player].resource >= 2){
- //      $(this).addClass('building');
- //      var space = $(this).attr('id');
- //      gameBoard.spaces[space].house = player;
- //      gameBoard[player].resource -=2;
- //      gameBoard[player].points += 1;
- //      $('.build1 .rsc').html(gameBoard[player].resource);
- //    } else {
- //      alert("you don't have enought resources");
- //    }
- //  });
 
 });
 
@@ -348,55 +380,7 @@ $('.returnResources').click(function(){
 
 
 
-//UNIVERSAL FUNCTIONS
 
-$('.hover').click(function(){
-  $(this).addClass('building');
-  var space = $(this).attr('id');
-  gameBoard.spaces[space].house = player;
-})
-
-var rollDice = function(){
-  var roll = Math.floor(Math.random() * 16 + 1);
-  return roll;
-}
-
-var returnResources = function(player, number){
-  var space = "space" + number;
-
-  var pointCount = 0;
-
-    if(gameBoard.spaces[space].house){
-      var resident = gameBoard.spaces[space].house
-      gameBoard[resident].resource += 1;
-      alert(resident + ' grabbed a resource!');
-    }
-  return pointCount;
-}
-
-var checkWinner = function(){
-  if(gameBoard.p1.points >= 3){
-    alert("player one wins");
-  } else if (gameBoard.p2.points >= 3){
-    alert("player one wins");
-  }
-}
-
-
-var buildPhase = function(player){
-  var userInput = prompt("do you want to build? you have " + gameBoard[player].resource + " resources. (y/n)");
-  if(userInput === 'y'){
-    var inputSpace = prompt("Enter the Square that you want to place on");
-    while (gameBoard.spaces[inputSpace].house !== undefined){
-      var inputSpace = prompt('That space is taken, choose another, or end your build phase. enter end to end turn or a new space in format "space1"');
-    } if (inputSpace === undefined){
-      var inputSpace = prompt('please enter a valid space. format is "space1, space2, etc."')
-    } else if (gameBoard.spaces[inputSpace].house === undefined){
-         //space gets filled with the players building
-      gameBoard.spaces[inputSpace].house = player;
-    }
-  }
-}
 
 
 
