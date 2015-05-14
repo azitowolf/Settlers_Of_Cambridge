@@ -2,10 +2,118 @@
 <html>
 <head>
   <title>Settlers of Cambridge</title>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="styles.css">
-  <script src="app.js" type="text/javascript" charset="utf-8" async defer></script>
+  <link rel="stylesheet" type="text/css" href="animate.css">
+
 </head>
 <body>
+<div class="container-fluid wrap">
 
+    <div class = "board animated fadeInRight hidden">
+      <div class= "space col-xs-2" id="space1">
+      1</div>
+      <div class= "space col-xs-2" id="space2">
+      2</div>
+      <div class= "space col-xs-2" id="space3">
+      3</div>
+      <div class= "space col-xs-2" id="space4">
+      4</div>
+      <div class= "space col-xs-2" id="space5">
+      5</div>
+      <div class= "space col-xs-2" id="space6">
+      6</div>
+      <div class= "space col-xs-2" id="space7">
+      7</div>
+      <div class= "space col-xs-2" id="space8">
+      8</div>
+      <div class= "space col-xs-2" id="space9">
+      9</div>
+      <div class= "space col-xs-2" id="space10">
+      10</div>
+      <div class= "space col-xs-2" id="space11">
+      11</div>
+      <div class= "space col-xs-2" id="space12">
+      12</div>
+      <div class= "space col-xs-2" id="space13">
+      13</div>
+      <div class= "space col-xs-2" id="space14">
+      14</div>
+      <div class= "space col-xs-2" id="space15">
+      15</div>
+      <div class= "space col-xs-2" id="space16">
+      16</div>
+      <div class= "space col-xs-2" id="space17">
+      17</div>
+      <div class= "space col-xs-2" id="space18">
+      18</div>
+      <div class= "space col-xs-2" id="space19">
+      19</div>
+      <div class= "space col-xs-2" id="space20">
+      20</div>
+      <div class= "space col-xs-2" id="space21">
+      21</div>
+      <div class= "space col-xs-2" id="space22">
+      22</div>
+      <div class= "space col-xs-2" id="space23">
+      23</div>
+      <div class= "space col-xs-2" id="space24">
+      24</div>
+      <div class= "space col-xs-2" id="space25">
+      25</div>
+      <div class= "space col-xs-2" id="space26">
+      26</div>
+      <div class= "space col-xs-2" id="space27">
+      27</div>
+      <div class= "space col-xs-2" id="space28">
+      28</div>
+      <div class= "space col-xs-2" id="space29">
+      29</div>
+      <div class= "space col-xs-2" id="space30">
+      30</div>
+      <div class= "space col-xs-2" id="space31">
+      31</div>
+      <div class= "space col-xs-2" id="space32">
+      32</div>
+      <div class= "space col-xs-2" id="space33">
+      33</div>
+      <div class= "space col-xs-2" id="space34">
+      34</div>
+      <div class= "space col-xs-2" id="space35">
+      35</div>
+      <div class= "space col-xs-2" id="space36">
+      36</div>
+
+
+</div>
+
+  <div class="welcome">
+    <div class="controltext"><p> Welcome to Settlers of Cambridge: A battle for control of university row. <br> Player 1 is Sam's Coffee and player 2 is Paypal.<br></p>
+    <p><br>The goal of the game is to get 5 victory points. <br> You acquire victory points by building buildings. <br> Each building is worth 1 victory points and costs 2 dollars to build.<br>Every time a number is rolled where you have a building, you get 1 resource. </p>
+    </div>
+    <button type="button" class="btn btn-success welcomeB">Click to Begin.</button>
+  </div>
+
+  <div class="controlPanel build1">
+    <div class="controltext"><p> Welcome Player <span class = "play"> </span> this is your first build phase, and you have <span class="rsc"> </span> resources. when you are finished building click to make your roll</p></div>
+    <button type="button" class="btn btn-success build1B">Click to Roll</button>
+  </div>
+
+  <div class="controlPanel return">
+    <div class="controltext"><p>you rolled a <span class="rl"></span> and now have <span class="ret"> </span> resources</p></div>
+    <button type="button" class="btn btn-success returnResources">Click for next turn phase</button>
+  </div>
+
+  <div class="controlPanel build">
+    <div class="controltext"><p>build now. you have <span class="rs"> </span> resources and <span class="pts"> </span> victory points</p></div>
+    <button type="button" class="btn btn-success buildPhase">Click to end your turn</button>
+  </div>
+
+</div>
+
+
+<script src="jquery.min.js" type="text/javascript" charset="utf-8"></script>
+
+<script src="app.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>
