@@ -3,15 +3,90 @@
 <head>
   <title>Settlers of Cambridge</title>
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="styles.css">
-  <link rel="stylesheet" type="text/css" href="animate.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <link rel="stylesheet" type="text/css" href="css/animate.css">
 
 </head>
 <body>
+<!-- div with all of the pieces of the board -->
 <div class="container-fluid wrap">
 
     <div class = "board animated fadeInRight hidden">
-      <div class= "space col-xs-2" id="space1">
+    <div class="hex-row">
+      <div class="hex">
+        <div class="hex-left"></div>
+        <div class="hex-middle"></div>
+        <div class="hex-right"></div>
+      </div>
+      <div class="hex even">
+        <div class="hex-left"></div>
+        <div class="hex-middle"></div>
+        <div class="hex-right"></div>
+      </div>
+       <div class="hex">
+        <div class="hex-left"></div>
+        <div class="hex-middle"></div>
+        <div class="hex-right"></div>
+      </div>
+      <div class="hex even">
+        <div class="hex-left"></div>
+        <div class="hex-middle"></div>
+        <div class="hex-right"></div>
+      </div>
+    </div>
+    <div class="hex-row">
+      <div class="hex">
+        <div class="hex-left"></div>
+        <div class="hex-middle"></div>
+        <div class="hex-right"></div>
+      </div>
+      <div class="hex even">
+        <div class="hex-left"></div>
+        <div class="hex-middle"></div>
+        <div class="hex-right"></div>
+      </div>
+       <div class="hex">
+        <div class="hex-left"></div>
+        <div class="hex-middle"></div>
+        <div class="hex-right"></div>
+      </div>
+      <div class="hex even">
+        <div class="hex-left"></div>
+        <div class="hex-middle"></div>
+        <div class="hex-right"></div>
+      </div>
+      <div class="hex">
+        <div class="hex-left"></div>
+        <div class="hex-middle"></div>
+        <div class="hex-right"></div>
+      </div>
+    </div>
+
+    <div class="hex-row">
+      <div class="hex">
+        <div class="hex-left"></div>
+        <div class="hex-middle"></div>
+        <div class="hex-right"></div>
+      </div>
+      <div class="hex even">
+        <div class="hex-left"></div>
+        <div class="hex-middle"></div>
+        <div class="hex-right"></div>
+      </div>
+       <div class="hex">
+        <div class="hex-left"></div>
+        <div class="hex-middle"></div>
+        <div class="hex-right"></div>
+      </div>
+      <div class="hex even">
+        <div class="hex-left"></div>
+        <div class="hex-middle"></div>
+        <div class="hex-right"></div>
+      </div>
+    </div>
+
+
+<!--       <div class= "space col-xs-2" id="space1">
       1</div>
       <div class= "space col-xs-2" id="space2">
       2</div>
@@ -82,38 +157,39 @@
       <div class= "space col-xs-2" id="space35">
       35</div>
       <div class= "space col-xs-2" id="space36">
-      36</div>
+      36</div> -->
 
 
 </div>
 
-  <div class="welcome">
-    <div class="controltext"><p> Welcome to Settlers of Cambridge: A battle for control of university row. <br> Player 1 is Sam's Coffee and player 2 is Paypal.<br></p>
-    <p><br>The goal of the game is to get 5 victory points. <br> You acquire victory points by building buildings. <br> Each building is worth 1 victory points and costs 2 dollars to build.<br>Every time a number is rolled where you have a building, you get 1 resource. </p>
+
+  <div class="controlPanel welcome animated fadeIn">
+    <div class="controltext"><p> Welcome to Settlers of Cambridge: A battle for control of university row. <br> Player one plays as the fanny-pack loving hipsters, fighting for culture and unbridled expression, while player two plays as the briefcase-toting biotech businessmen who build the cities financial backbone.<br></p>
+    <p><br>The goal of the game is to get 5 victory points. <br> You acquire victory points by claiming spaces on the map. <br> Each space is worth 1 victory point and costs 2 dollars to build.<br>Every time a number is rolled, the player who owns that space gets a dollar. </p>
     </div>
     <button type="button" class="btn btn-success welcomeB">Click to Begin.</button>
   </div>
 
   <div class="controlPanel build1">
-    <div class="controltext"><p> Welcome Player <span class = "play"> </span> this is your first build phase, and you have <span class="rsc"> </span> resources. when you are finished building click to make your roll</p></div>
+    <div class="controltext"><p> Welcome <span class = "play"> </span> this is your first build phase, and you have <span class="rsc"> </span> resources. when you are finished building click to make your roll</p></div>
     <button type="button" class="btn btn-success build1B">Click to Roll</button>
   </div>
 
   <div class="controlPanel return">
-    <div class="controltext"><p>you rolled a <span class="rl"></span> and now have <span class="ret"> </span> resources</p></div>
+    <div class="controltext"><p>You rolled a <span class="rl"></span> and now have <span class="ret"> </span> resources</p></div>
     <button type="button" class="btn btn-success returnResources">Click for next turn phase</button>
   </div>
 
   <div class="controlPanel build">
-    <div class="controltext"><p>build now. you have <span class="rs"> </span> resources and <span class="pts"> </span> victory points</p></div>
+    <div class="controltext"><p>Final Buildphase. you have <span class="rs"> </span> resources and <span class="pts"> </span> victory points</p></div>
     <button type="button" class="btn btn-success buildPhase">Click to end your turn</button>
   </div>
 
 </div>
 
 
-<script src="jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 
-<script src="app.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/app.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>

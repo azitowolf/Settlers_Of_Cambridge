@@ -203,8 +203,9 @@ var setGameBoard = function(){
     gameBoard.spaces[randomspace].resource = true;
     var $randomspace = "#" + randomspace;
     $($randomspace).addClass('randomResource');
-  }
-    $('.turn, .return, .build, .build1').hide();
+  };
+
+    $('.return, .build, .build1').hide();
     gameBoard.turnCount = 1;
     gameBoard.p1.resource = 4;
     gameBoard.p2.resource = 4;
@@ -222,11 +223,11 @@ var switchPlayer = function(){
   }
 };
 
-$('.hover').click(function(){
-  $(this).addClass('building');
-  var space = $(this).attr('id');
-  gameBoard.spaces[space].house = player;
-});
+// $('.hover').click(function(){
+//   $(this).addClass('building');
+//   var space = $(this).attr('id');
+//   gameBoard.spaces[space].house = player;
+// });
 
 var rollDice = function(){
   var roll = Math.floor(Math.random() * 16 + 1);
@@ -235,57 +236,61 @@ var rollDice = function(){
 
 var returnResources = function(player, number){
   var space = "space" + number;
-
   var pointCount = 0;
 
     if(gameBoard.spaces[space].house){
       var resident = gameBoard.spaces[space].house;
       gameBoard[resident].resource += 1;
+      $('.build1 .rsc').html(gameBoard[player].resource);
+      $('.return .ret').html(gameBoard[player].resource);
+      $('.build .rs').html(gameBoard[player].resource);
+      $('.return .rl').html(number)
       alert(resident + ' grabbed a resource!');
     }
   return pointCount;
 };
 
 var checkWinner = function(){
-  if(gameBoard.p1.points >= 3){
+  if(gameBoard.p1.points >= 5){
     alert("player one wins");
-  } else if (gameBoard.p2.points >= 3){
+  } else if (gameBoard.p2.points >= 5){
     alert("player one wins");
   }
 };
 
 
-var buildPhase = function(player){
-  var userInput = prompt("do you want to build? you have " + gameBoard[player].resource + " resources. (y/n)");
-  if(userInput === 'y'){
-    var inputSpace = prompt("Enter the Square that you want to place on");
-    while (gameBoard.spaces[inputSpace].house !== undefined){
-      inputSpace = prompt('That space is taken, choose another, or end your build phase. enter end to end turn or a new space in format "space1"');
-    } if (inputSpace === undefined){
-      var inputSpace = prompt('please enter a valid space. format is "space1, space2, etc."');
-    } else if (gameBoard.spaces[inputSpace].house === undefined){
-         //space gets filled with the players building
-      gameBoard.spaces[inputSpace].house = player;
-    }
-  }
-};
 
-setGameBoard();
+// var buildPhase = function(player){
+//   var userInput = prompt("do you want to build? you have " + gameBoard[player].resource + " resources. (y/n)");
+//   if(userInput === 'y'){
+//     var inputSpace = prompt("Enter the Square that you want to place on");
+//     while (gameBoard.spaces[inputSpace].house !== undefined){
+//       inputSpace = prompt('That space is taken, choose another, or end your build phase. enter end to end turn or a new space in format "space1"');
+//     } if (inputSpace === undefined){
+//       var inputSpace = prompt('please enter a valid space. format is "space1, space2, etc."');
+//     } else if (gameBoard.spaces[inputSpace].house === undefined){
+//          //space gets filled with the players building
+//       gameBoard.spaces[inputSpace].house = player;
+//     }
+//   }
+// };
+
+
 
 
 //TURNS
 
-var player = "p1",
-round = gameBoard.turnCount/2;
-
-
+var player = "p1";
+$('.return, .build, .build1').hide();
 
 //BUILD 1
 
 $('.welcomeB').click(function(){
 
+  setGameBoard();
+
 //hide all control panels
-  $('.turn, .return, .build, .welcome').hide();
+  $('.welcome').hide();
   $('.build1').show();
   $('.board').removeClass('hidden');
 
@@ -303,10 +308,10 @@ $('.welcomeB').click(function(){
 
 //toggle first buildphase
   $('.board').toggleClass('building');
+
   $('.board').children().click(function(){
 
     var space = $(this).attr('id');
-    // $(this).css('-webkit-animation:bounceIn');
 
     if(player === "p1"){
       if(gameBoard[player].resource >= 2){
@@ -315,6 +320,8 @@ $('.welcomeB').click(function(){
         gameBoard[player].resource -=2;
         gameBoard[player].points += 1;
         $('.build1 .rsc').html(gameBoard[player].resource);
+        $('.return .ret').html(gameBoard[player].resource);
+        $('.build .rs').html(gameBoard[player].resource);
       } else {
         alert("sorry" + player + "you dont have enough resources");
       }
@@ -325,6 +332,8 @@ $('.welcomeB').click(function(){
         gameBoard[player].resource -=2;
         gameBoard[player].points += 1;
         $('.build1 .rsc').html(gameBoard[player].resource);
+        $('.return .ret').html(gameBoard[player].resource);
+        $('.build .rs').html(gameBoard[player].resource);
       } else {
         alert("sorry " + player + " you dont have enough resources");
       }
@@ -337,7 +346,7 @@ $('.welcomeB').click(function(){
 $('.build1B').click(function(){
 
 //hide panel and show new panel
-  $('.build1').hide();
+  // $('.build1').hide();
   $('.return').show();
 
 //toggle build
@@ -357,7 +366,7 @@ $('.build1B').click(function(){
 $('.returnResources').click(function(){
 
 //hide panel and show new panel
-  $('.return').hide();
+  // $('.return').hide();
   $('.build').show();
 
 //add text to page
