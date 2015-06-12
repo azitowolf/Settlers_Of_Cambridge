@@ -7,78 +7,21 @@
 
 }
 
+/* HEX GRID */
 .board{
   margin:50px;
   max-width: 600px;
   height: 600px;
   padding:0px;
+  margin-top:150px;
 
-  background-position: cover;
-  background-size: cover;
   float:right;
 }
-
-.space{
-  height: 16.666%;
-  -webkit-transition: .5s ease-in-out;
-}
-
-.controlPanel{
-  margin:50px 50px 20px 50px;
-  width: 100%;
-  font-size: 2vw;
-  color:white;
-}
-
-.space:hover{
-  background-color: white;
-  opacity: 0.5;
-}
-.p1building{
-  background: url('../img/giphyHipsterPack.gif');
-  background-size: cover;
-  background-position: center;
-}
-
-
-.p2building{
-  background: url('../img/giphyBusiness.gif');
-  background-size: cover;
-  background-position: center;
-}
-
-.welcome{
-  -webkit-transition:1s ease-in-out;
-  height: 500px;
-  width:100%;
-  margin-top: 2%;
-  color:white;
-  font-size: 2vw;
-
-}
-
-.hidden{
-  visibility: hidden;
-}
-
-.randomResource::after{
-  content: '';
-  background:url('../img/moneybag.png');
-  background-size: cover;
-  position:absolute;
-  top: calc(50% - 20px);
-  right:calc(50% - 20px);
-  height: 40px;
-  width: 40px;
-
-}
-
 .hex {
     float: left;
     margin-right: -26px;
     margin-bottom: -50px;
 }
-
 .hex-row {
     clear: left;
 }
@@ -105,4 +48,68 @@
   border-left: 30px solid #6C6;
   border-top: 52px solid transparent;
   border-bottom: 52px solid transparent;
+}
+.h{
+  opacity: 0;
+}
+
+.space{
+  -webkit-transition: .5s ease-in-out;
+}
+
+.controlPanel{
+  margin:50px 50px 20px 50px;
+  width: 100%;
+  font-size: 2vw;
+  color:white;
+}
+
+.space:hover{
+  color:white;
+}
+.p1building::after{
+  content:'';
+  background: url('../img/office_building.png');
+  background-size: cover;
+  margin-left: 30px;
+  margin-bottom: 50px;
+  position: absolute;
+  height:50px;
+  width: 50px;
+}
+
+
+.p2building::after{
+  content:'';
+  background: url('../img/coffee_shop.png');
+  background-size: cover;
+  position: absolute;
+  height:50px;
+  width: 50px;
+  margin-left: 30px;
+  margin-bottom: 50px;
+}
+
+.welcome{
+  -webkit-transition:1s ease-in-out;
+  height: 500px;
+  width:100%;
+  margin-top: 2%;
+  color:white;
+  font-size: 2vw;
+
+}
+
+.hidden{
+  visibility: hidden;
+}
+
+.randomResource::after{
+  content: '';
+  background:url('../img/moneybag.png');
+  background-size:cover;
+  position:absolute;
+  height: 30px;
+  width: 30px;
+  z-index: 1;
 }

@@ -128,67 +128,7 @@ var gameBoard = {
     space21: {
     resource:false,
     house: false,
-    },
-    space22: {
-    resource:false,
-    house: false,
-    },
-    space23: {
-    resource:false,
-    house: false,
-    },
-    space24: {
-    resource:false,
-    house: false,
-    },
-    space25: {
-    resource:false,
-    house: false,
-    },
-    space26: {
-    resource:false,
-    house: false,
-    },
-    space27: {
-    resource:false,
-    house: false,
-    },
-    space28: {
-    resource:false,
-    house: false,
-    },
-    space29: {
-    resource:false,
-    house: false,
-    },
-    space30: {
-    resource:false,
-    house: false,
-    },
-    space31: {
-    resource:false,
-    house: false,
-    },
-    space32: {
-    resource:false,
-    house: false,
-    },
-    space33: {
-    resource:false,
-    house: false,
-    },
-    space34: {
-    resource:false,
-    house: false,
-    },
-    space35: {
-    resource:false,
-    house: false,
-    },
-    space36: {
-    resource:false,
-    house: false,
-    },
+    }
   }
 
 };
@@ -198,11 +138,11 @@ var gameBoard = {
 //UNIVERSAL FUNCTIONS
 var setGameBoard = function(){
 
-  for(var i = 0; i < 16; i++){
-    var randomspace = "space" + Math.floor(Math.random()* 24 + 1);
+  for(var i = 0; i < 10; i++){
+    var randomspace = "space" + Math.floor(Math.random()* 21 + 1);
     gameBoard.spaces[randomspace].resource = true;
     var $randomspace = "#" + randomspace;
-    $($randomspace).addClass('randomResource');
+    $($randomspace).children('.hex-middle').addClass('randomResource');
   };
 
     $('.return, .build, .build1').hide();
@@ -228,6 +168,7 @@ var switchPlayer = function(){
 //   var space = $(this).attr('id');
 //   gameBoard.spaces[space].house = player;
 // });
+
 
 var rollDice = function(){
   var roll = Math.floor(Math.random() * 16 + 1);
@@ -309,13 +250,13 @@ $('.welcomeB').click(function(){
 //toggle first buildphase
   $('.board').toggleClass('building');
 
-  $('.board').children().click(function(){
+  $('.board').children().children().click(function(){
 
     var space = $(this).attr('id');
 
     if(player === "p1"){
       if(gameBoard[player].resource >= 2){
-        $(this).addClass('p1building');
+        $(this).children('.hex-left').addClass('p1building');
         gameBoard.spaces[space].house = player;
         gameBoard[player].resource -=2;
         gameBoard[player].points += 1;
@@ -327,7 +268,7 @@ $('.welcomeB').click(function(){
       }
     } else if (player === "p2")
       if(gameBoard[player].resource >= 2){
-        $(this).addClass('p2building');
+        $(this).children('.hex-left').addClass('p2building');
         gameBoard.spaces[space].house = player;
         gameBoard[player].resource -=2;
         gameBoard[player].points += 1;
